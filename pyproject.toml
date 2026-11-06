@@ -1,0 +1,27 @@
+[project]
+name = "subs-renamer"
+version = "0.2.0"
+description = "Переименование персонажей в русских субтитрах сезона аниме"
+requires-python = ">=3.12,<3.14"
+dependencies = ["PySide6>=6.8,<7", "google-genai>=1.0,<3", "pydantic>=2.10,<3", "httpx[socks]>=0.28,<1", "python-dotenv>=1,<2"]
+
+[project.scripts]
+subs-renamer = "subs_renamer.gui:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pyinstaller>=6.12,<7", "ruff>=0.11,<1"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E9", "F", "I", "UP"]
+
